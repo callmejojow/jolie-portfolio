@@ -1,6 +1,6 @@
 import styles from './Home.module.css';
 
-const Home: React.FC = () => {
+export default function Home() {
   return (
     <section className={styles.home}>
       <div className={styles.placeholderAnimation}>
@@ -16,6 +16,4 @@ const Home: React.FC = () => {
       </div>
     </section>
   );
-};
-
-export default Home;
+}

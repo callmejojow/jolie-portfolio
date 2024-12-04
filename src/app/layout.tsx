@@ -1,28 +1,30 @@
 'use client';
+import { ReactNode, useState } from 'react';
 import Header from './components/Header';
-import Footer from './components/Footer';
 import Sidebar from './components/Sidebar';
-import { useState } from 'react';
+import Footer from './components/Footer';
 import styles from './components/Layout.module.css';
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: ReactNode
 }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
+    setIsSidebarOpen((prev) => !prev);
   };
 
   return (
     <html lang="en">
       <body className={styles.body}>
-        <Header onToggleSidebar={toggleSidebar} />
-        <Sidebar isOpen={isSidebarOpen} />
-        <main className={styles.mainContent}>{children}</main>
-        <Footer />
+        <div className={styles.layout}>
+          <Header onToggleSidebar={toggleSidebar} />
+          {isSidebarOpen && <Sidebar isOpen={isSidebarOpen} onClose={toggleSidebar} />}
+          <main className={styles.mainContent}>{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

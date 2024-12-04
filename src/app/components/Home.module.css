@@ -6,22 +6,38 @@
     height: 100%;
     text-align: center;
     position: relative;
-  }
+    background-image: url('/assets/code.png');
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 20%;
+}
   
-  .placeholderAnimation {
-    margin-bottom: 2rem;
-    padding: 2rem;
-    border: 2px dashed #c43727;
-    color: #c43727;
-    font-style: italic;
-  }
+.introText h1 {
+  font-size: 4rem;
+  color: #c43727;
+}
   
-  .introText h1 {
-    font-size: 2.5rem;
-    color: #c43727;
-  }
-  
-  .introText p {
-    font-size: 1.2rem;
-    color: #5c4e7d;
-  }  
+.introText p {
+  font-size: 1.2rem;
+  color: #5c4e7d;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    .introText h1 {
+        font-size: 3rem;
+    }
+    .introText p {
+        font-size: 1rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .introText h1 {
+        font-size: 2rem;
+    }
+    .home {
+        background-size: 40%;
+    }
+}  

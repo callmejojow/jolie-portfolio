@@ -3,15 +3,10 @@ import styles from './Home.module.css';
 export default function Home() {
   return (
     <section className={styles.home}>
-      <div className={styles.placeholderAnimation}>
-        {/* Placeholder for animation */}
-        <p>Animation placeholder (e.g., girl walking)</p>
-      </div>
       <div className={styles.introText}>
-        <h1>Welcome to My Portfolio</h1>
+        <h1>Hello! I'm Jolie Wang.</h1>
         <p>
-          Hi, I'm Jolie! This is my personal portfolio where I showcase my skills,
-          projects, and interests. Feel free to explore and learn more about me!
+        Software Engineer | Microsoft D365 Business Central Solution Developer
         </p>
       </div>
     </section>

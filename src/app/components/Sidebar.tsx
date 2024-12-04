@@ -11,6 +11,10 @@ interface SidebarProps {
 export default function Sidebar({ isOpen, onClose }: SidebarProps) {
   const sidebarRef = useRef<HTMLDivElement>(null);
 
+  const handleLinkClick = () => {
+    onClose();
+  };
+
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (sidebarRef.current &&
@@ -35,12 +39,12 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
     <div ref={sidebarRef} className={`${styles.sidebar} ${isOpen ? styles.open : ''}`}>
       <nav className={styles.sidebarNav}>
         <ul>
-          <li><Link href="/">Home</Link></li>
-          <li><Link href="#about">About</Link></li>
-          <li><Link href="#projects">Projects</Link></li>
-          <li><Link href="#resume">Resume</Link></li>
-          <li><Link href="#contact">Contact</Link></li>
-          <li><Link href="#hobbies">Hobbies</Link></li>
+          <li><Link href="/" onClick={handleLinkClick}>Home</Link></li>
+          <li><Link href="#about" onClick={handleLinkClick}>About</Link></li>
+          <li><Link href="#projects" onClick={handleLinkClick}>Projects</Link></li>
+          <li><Link href="#resume" onClick={handleLinkClick}>Resume</Link></li>
+          <li><Link href="#contact" onClick={handleLinkClick}>Contact</Link></li>
+          <li><Link href="#hobbies" onClick={handleLinkClick}>Hobbies</Link></li>
         </ul>
       </nav>
     </div>

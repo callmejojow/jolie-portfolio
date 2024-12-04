@@ -8,7 +8,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleSidebar }) => {
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
-        <img src="/logo.png" alt="Logo" />
+        <img src="/assets/logo.svg" alt="Logo" />
       </div>
       <button className={styles.pancakeIcon} onClick={onToggleSidebar}>
         ☰

@@ -1,0 +1,17 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+  
+  .mainContent {
+    flex: 1;
+    padding: 2rem;
+    transition: margin-left 0.3s ease;
+  }
+  
+  .sidebarOpen .mainContent {
+    margin-left: 200px; /* Adjust based on sidebar width */
+  }
+  

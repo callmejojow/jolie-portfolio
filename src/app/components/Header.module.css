@@ -1,0 +1,49 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1rem;
+  background-color: #c0c0c080;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%; /* Fixed to 100% of the viewport width */
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  margin: 0; /* Ensure there are no margins that push it off-screen */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 120px;
+}
+
+.pancakeIcon {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #c43727;
+  z-index: 1100;
+  padding: 0rem 2rem;
+}
+
+/* Tablet & Mobile */
+@media (max-width: 768px) {
+  .header {
+    padding: 0.5rem;
+  }
+  
+  .logo img {
+    width: 40px;
+  }
+  
+  .pancakeIcon {
+    font-size: 1.5rem;
+    padding: 0rem 1rem;
+  }
+}

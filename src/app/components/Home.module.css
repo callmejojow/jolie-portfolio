@@ -1,0 +1,27 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background: linear-gradient(to bottom, #f4efeb, #ffffff);
+  }
+  
+  .placeholderAnimation {
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border: 2px dashed #c43727;
+    color: #c43727;
+    font-style: italic;
+  }
+  
+  .introText h1 {
+    font-size: 2.5rem;
+    color: #c43727;
+  }
+  
+  .introText p {
+    font-size: 1.2rem;
+    color: #5c4e7d;
+  }  

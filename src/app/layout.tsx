@@ -18,6 +18,10 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        <title>Jolie Wang | Portfolio</title>
+        <meta name="description" content="This is a portfolio website for Jolie Wang." />
+      </head>
       <body className={styles.body}>
         <div className={styles.layout}>
           <Header onToggleSidebar={toggleSidebar} />

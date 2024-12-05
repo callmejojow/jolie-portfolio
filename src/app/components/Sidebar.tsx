@@ -40,11 +40,11 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
       <nav className={styles.sidebarNav}>
         <ul>
           <li><Link href="/" onClick={handleLinkClick}>Home</Link></li>
-          <li><Link href="#about" onClick={handleLinkClick}>About</Link></li>
-          <li><Link href="#projects" onClick={handleLinkClick}>Projects</Link></li>
-          <li><Link href="#resume" onClick={handleLinkClick}>Resume</Link></li>
-          <li><Link href="#contact" onClick={handleLinkClick}>Contact</Link></li>
-          <li><Link href="#hobbies" onClick={handleLinkClick}>Hobbies</Link></li>
+          <li><Link href="/about" onClick={handleLinkClick}>About</Link></li>
+          <li><Link href="/projects" onClick={handleLinkClick}>Projects</Link></li>
+          <li><Link href="/resume" onClick={handleLinkClick}>Resume</Link></li>
+          <li><Link href="/contact" onClick={handleLinkClick}>Contact</Link></li>
+          <li><Link href="/hobbies" onClick={handleLinkClick}>Hobbies</Link></li>
         </ul>
       </nav>
     </div>

@@ -10,10 +10,9 @@ const About: React.FC = () => {
       <div className={styles.introContainer}>
         <h2 className={styles.title}>Who I Am</h2>
         <p className={styles.introText}>
-          Hi, I'm Jolie. I'm a passionate web developer with experience in creating dynamic and interactive web applications. 
-          My journey has taken me from learning the basics to exploring advanced concepts, constantly evolving my skills to 
-          create more robust and user-friendly applications. Welcome to my portfolio, and feel free to explore my projects 
-          and get to know more about me!
+          Hi, I'm Jolie. I'm a passionate software developer with experience in building full-stack applications and business solutions. My journey has taken 
+          me from art to technology, and my love for creating and innovating continues to this day. Welcome to my portfolio—feel free to explore my projects 
+          and get to know me better!
         </p>
       </div>
     </section>

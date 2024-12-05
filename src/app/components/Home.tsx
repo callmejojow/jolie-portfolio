@@ -7,7 +7,7 @@ export default function Home() {
         <h1>Hello! I am Jolie Wang.</h1>
         <div className={styles.scrollContainer}>
           <p>
-            Software Engineer | Microsoft D365 Business Central Solution Developer
+            Software Engineer | Microsoft D365 Business Central Solution Developer | Graphic Designer | Freelance Illustrator 
           </p>
         </div>
       </div>

@@ -2,10 +2,87 @@
 import styles from '../components/Projects.module.css';
 
 const Projects: React.FC = () => {
-  const projects = Array.from({ length: 9 }, (_, index) => ({
-    title: `Project ${index + 1}`,
-    description: `This is a brief description of project ${index + 1}.`,
-  }));
+  const projects = [
+    {
+      title: 'Manifesto Space',
+      technologies: 'Vue.js 3 | Tailwind CSS',
+      description: 'A dynamic web platform that showcases space-themed manifestos. Built with Vue.js 3 and styled with Tailwind CSS, this project features:',
+      features: [
+        '• Advanced navbar with parallax scrolling effects',
+        '• Smooth state transitions and page animations',
+        '• Interactive exhibition navigation system',
+        '• Responsive design with mobile-first approach',
+        '• Custom scroll-triggered animations'
+      ],
+      image: '/assets/thumbnail-proj1.jpg', 
+      link: 'https://manifesto-space.com/'
+    },
+    {
+      title: 'Magic Noodle',
+      technologies: 'Laravel | MySQL | JavaScript',
+      description: 'A full-stack restaurant website with a robust admin system built using Laravel and MySQL. Features a dynamic menu management system and bilingual content support:',
+      features: [
+        '• Responsive design for all devices',
+        '• Interactive hero banner with JavaScript carousel',
+        '• MySQL database integration for dynamic content',
+        '• RESTful API endpoints',
+        '• Bilingual support with database-driven translations (EN/CN)'
+      ],
+      image: '/assets/thumbnail-proj2.jpg',
+      link: 'https://magicnoodle.ca/'
+    },
+    {
+      title: 'Flip-O-Rama',
+      technologies: 'Vue.js 3 | JavaScript | CSS',
+      description: 'A memory card matching game built with Vue.js 3 Composition API. Designed and implemented from scratch with engaging animations and game mechanics:',
+      features: [
+        '• Custom game logic using Vue.js 3 Composition API',
+        '• Responsive game board with CSS Grid layout',
+        '• Interactive card flip animations',
+        '• Score tracking and game state management',
+        '• Deployed and hosted on Netlify'
+      ],
+      image: '/assets/thumbnail-proj3.jpg', 
+      link: 'https://flip-o-rama-jo.netlify.app/'
+    },
+    {
+      title: 'ARealMe Quiz Website',
+      technologies: 'Figma | HTML | CSS',
+      description: 'Designed the user interface for a popular quiz platform featuring personality tests and knowledge assessments. Focused on creating an engaging and intuitive user experience:',
+      features: [
+        '• Created responsive UI designs for mobile and desktop',
+        '• Designed intuitive quiz navigation system',
+        '• Developed visual hierarchy for quiz content',
+        '• Implemented consistent design language',
+        '• Enhanced user engagement through visual design'
+      ],
+      image: '/assets/thumbnail-proj4.jpg', 
+      link: 'https://www.arealme.com/'
+    },
+  ];
+
+  const ProjectGrid = () => (
+    <div className={styles.gridContainer}>
+      {projects.map((project, index) => (
+        <div key={index} className={styles.projectCard}>
+          <div className={styles.projectImage}>
+            <img src={project.image} alt={project.title} />
+          </div>
+          <h3 className={styles.projectTitle}>{project.title}</h3>
+          <p className={styles.projectTech}>{project.technologies}</p>
+          <p className={styles.projectDescription}>{project.description}</p>
+          <ul className={styles.featuresList}>
+            {project.features.map((feature, i) => (
+              <li key={i}>{feature}</li>
+            ))}
+          </ul>
+          <a href={project.link} className={styles.viewProject}>
+            View Project →
+          </a>
+        </div>
+      ))}
+    </div>
+  );
 
   return (
     <section className={styles.projectsContainer}>
@@ -63,14 +140,7 @@ const Projects: React.FC = () => {
       </div>
 
       {/* Projects Grid Section */}
-      <div className={styles.gridContainer}>
-        {projects.map((project, index) => (
-          <div key={index} className={styles.projectCard}>
-            <h3 className={styles.projectTitle}>{project.title}</h3>
-            <p className={styles.projectDescription}>{project.description}</p>
-          </div>
-        ))}
-      </div>
+      <ProjectGrid />
     </section>
   );
 };

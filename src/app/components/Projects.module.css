@@ -1,0 +1,179 @@
+.projectsContainer {
+position: relative;
+padding: 4rem 2rem;
+}
+
+.overviewContainer {
+text-align: center;
+padding: 2rem;
+}
+
+.sectionTitle {
+font-size: 2.5rem;
+color: #c43727;
+margin-bottom: 6rem;
+}
+
+.cardContainer {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 2rem;
+width: 100%;
+}
+
+.card {
+padding: 2rem;
+border-radius: 8px;
+}
+
+.cardTitle {
+font-size: 1.5rem;
+color: #5c4e7d;
+font-weight: bold;
+text-align: center;
+}
+
+.cardText {
+font-size: 1rem;
+color: #333;
+line-height: 1.6;
+text-align: center;
+text-align-last: center;
+}
+
+.arrowIcon {
+display: flex;
+justify-content: center;
+margin: 2rem 0;
+}
+
+.bouncingArrow {
+font-size: 2rem;
+color: #c43727;
+animation: bounce 1.5s infinite;
+cursor: pointer;
+}
+
+@keyframes bounce {
+0%, 100% {
+    transform: translateY(0);
+}
+50% {
+    transform: translateY(-10px);
+}
+}
+
+.gridContainer {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 2rem;
+padding: 2rem;
+}
+
+.projectCard {
+background-color: #ffffff;
+padding: 1.5rem;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s;
+}
+
+.projectCard:hover {
+transform: translateY(-5px);
+}
+
+.projectTitle {
+font-size: 1.25rem;
+color: #c43727;
+margin-bottom: 1rem;
+}
+
+.projectDescription {
+font-size: 1rem;
+color: #5c4e7d;
+}
+
+.cardTitlesContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+.cardTitlesContainer,
+.cardContainer {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.gridContainer {
+    grid-template-columns: 1fr 1fr;
+}
+
+.cardTitle {
+  max-width: 100%;
+}
+}
+
+@media (max-width: 640px) {
+.cardContainer,
+.gridContainer {
+    grid-template-columns: 1fr;
+}
+
+.sectionTitle {
+    font-size: 2rem;
+}
+
+.bouncingArrow {
+    font-size: 1.75rem;
+}
+
+.projectTitle {
+    font-size: 1.1rem;
+}
+
+.projectDescription {
+    font-size: 0.95rem;
+}
+}
+
+.cardsWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  width: 100%;
+}
+
+.cardGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  color: #5c4e7d;
+  font-weight: bold;
+  text-align: center;
+}
+
+.card {
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1024px) {
+  .cardsWrapper {
+    grid-template-columns: 1fr;
+    gap: 3rem;  /* Increased gap between card groups */
+  }
+
+  .cardGroup {
+    gap: 1rem;  /* Space between title and its card */
+  }
+}
+  

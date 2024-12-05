@@ -1,7 +1,7 @@
 .footer {
     text-align: center;
     padding: 0.2rem;
-    background-color: #c5bfba94;
+    background:linear-gradient(0deg, rgb(180, 178, 178) 0%, #f4efeb 100%);
     color: hsla(0, 0%, 0%, 0.553);
     position: relative;
     bottom: 0;

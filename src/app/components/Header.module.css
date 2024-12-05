@@ -3,8 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1rem;
-  background-color: #c0c0c080;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(180deg, rgb(158, 156, 156) 0%, #f4efeb 100%);
   position: fixed;
   width: 100%; /* Fixed to 100% of the viewport width */
   top: 0;

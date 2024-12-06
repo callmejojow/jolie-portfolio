@@ -6,15 +6,20 @@ const Home: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isMounted, setIsMounted] = useState(false);
   const animationRef = useRef<NodeJS.Timeout>();
-  const indexRef = useRef(0);
+  const hasStartedAnimation = useRef(false);
 
   useEffect(() => {
     setIsMounted(true);
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted || !canvasRef.current || hasStartedAnimation.current) return;
     
+    const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
+
+    hasStartedAnimation.current = true;
 
     const updateCanvas = () => {
       const windowWidth = window.innerWidth;
@@ -35,13 +40,13 @@ const Home: React.FC = () => {
     updateCanvas();
 
     const text = "Hello! I am Jolie Wang";
-    indexRef.current = 0;
+    let index = 0;
 
     const typeText = () => {
-      if (indexRef.current <= text.length) {
+      if (index <= text.length) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillText(text.slice(0, indexRef.current), canvas.width / 2, 70);
-        indexRef.current++;
+        ctx.fillText(text.slice(0, index), canvas.width / 2, 70);
+        index++;
         animationRef.current = setTimeout(typeText, 100);
       }
     };
@@ -50,7 +55,7 @@ const Home: React.FC = () => {
 
     const handleResize = () => {
       updateCanvas();
-      ctx.fillText(text.slice(0, indexRef.current), canvas.width / 2, 70);
+      ctx.fillText(text.slice(0, index), canvas.width / 2, 70);
     };
 
     window.addEventListener('resize', handleResize);
@@ -61,7 +66,7 @@ const Home: React.FC = () => {
         clearTimeout(animationRef.current);
       }
     };
-  }, []);
+  }, [isMounted]);
 
   return (
     <section className={styles.homeContainer}>

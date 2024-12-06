@@ -88,3 +88,23 @@ padding: 0 0.5rem;
 margin-bottom: 15vh;
 }
 }
+
+.typewriterFallback {
+  font-size: 64px;
+  font-weight: bold;
+  color: #c43727;
+  text-align: center;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .typewriterFallback {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .typewriterFallback {
+    font-size: 32px;
+  }
+}

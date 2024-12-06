@@ -118,10 +118,13 @@ const Keywords = ({ hobbies }: { hobbies: typeof HOBBIES_DATA }) => {
           const margin = windowWidth <= 480 ? 0.5 : 
                         windowWidth <= 768 ? 1 : 2;
           
-          newStyles[key] = {
-            transform: `rotate(${Math.random() * 30 - 15}deg)`,
-            margin: `${Math.random() * margin}rem`
-          };
+          // Only apply random styles after mounting on client
+          if (isMounted) {
+            newStyles[key] = {
+              transform: `rotate(${Math.random() * 30 - 15}deg)`,
+              margin: `${Math.random() * margin}rem`
+            };
+          }
         });
       });
       
@@ -131,7 +134,7 @@ const Keywords = ({ hobbies }: { hobbies: typeof HOBBIES_DATA }) => {
     calculateStyles();
   }, [hobbies, isMounted, windowWidth]);
 
-  // Simple version for SSR
+  // Server-side and initial client render - no random styles
   if (!isMounted) {
     return (
       <div className={styles.keywordsContainer}>
@@ -141,6 +144,7 @@ const Keywords = ({ hobbies }: { hobbies: typeof HOBBIES_DATA }) => {
               key={`${hobby.id}-${index}`}
               href={`#${hobby.id}`}
               className={`${styles.keyword} ${styles[hobby.id]}`}
+              style={{ margin: '1rem' }} // Default static margin
             >
               {name}
             </a>
@@ -150,7 +154,7 @@ const Keywords = ({ hobbies }: { hobbies: typeof HOBBIES_DATA }) => {
     );
   }
 
-  // Client-side version with styles
+  // Client-side render with random styles
   return (
     <div className={styles.keywordsContainer}>
       {hobbies.map((hobby) => (
@@ -161,7 +165,7 @@ const Keywords = ({ hobbies }: { hobbies: typeof HOBBIES_DATA }) => {
               key={key}
               href={`#${hobby.id}`}
               className={`${styles.keyword} ${styles[hobby.id]}`}
-              style={keywordStyles[key] || {}}
+              style={keywordStyles[key] || { margin: '1rem' }}
             >
               {name}
             </a>

@@ -1,0 +1,144 @@
+/* General Container for Contact Page */
+.contactContainer {
+  position: relative;
+  padding: 12rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: 100vh;
+  z-index: 1;
+}
+
+/* Background image */
+.contactContainer::before {
+  content: '';
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 600px;
+  height:600px;
+  background-image: url('/assets/contact.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  z-index: -1;
+  opacity: 0.7;
+  pointer-events: none;
+  display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .contactContainer::before {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* Section Title */
+.sectionTitle {
+  font-size: 2.5rem;
+  color: #c43727;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Contact Information */
+.contactInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.contactLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #5c4e7d;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.contactLink:hover {
+  transform: translateY(-5px);
+}
+
+.contactLink img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 0.5rem;
+}
+
+/* Contact Form */
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.formLabel {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.formInput {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.formTextarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.submitButton {
+  padding: 1rem 2rem;
+  background-color: #c43727;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #a62d22;
+}
+
+/* Location Map */
+.mapContainer {
+  margin-top: 3rem;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .contactContainer {
+    padding: 2rem 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .contactForm {
+    gap: 1rem;
+  }
+
+  .contactInfo {
+    gap: 1.5rem;
+  }
+
+  .contactLink img {
+    width: 32px;
+    height: 32px;
+  }
+}

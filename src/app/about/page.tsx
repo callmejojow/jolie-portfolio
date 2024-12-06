@@ -5,7 +5,15 @@ const About: React.FC = () => {
   return (
     <section className={styles.aboutContainer}>
       <div className={styles.avatarContainer}>
-        <Image src="/avatar.png" alt="Avatar" width={100} height={100} />
+        <Image 
+          src="/assets/avatar.png" 
+          alt="Avatar" 
+          width={500}
+          height={500}
+          className={styles.avatar}
+          priority
+          sizes="(max-width: 640px) 300px, (max-width: 1024px) 400px, 500px"
+        />
       </div>
       <div className={styles.introContainer}>
         <h2 className={styles.title}>Who I Am</h2>

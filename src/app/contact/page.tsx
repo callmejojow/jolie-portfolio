@@ -9,13 +9,13 @@ const Contact = () => {
       
       <div className={styles.contactInfo}>
         <a href="https://www.linkedin.com/in/jolie-wang" target="_blank" rel="noopener noreferrer" className={styles.contactLink}>
-          <Image src="/linkedin.png" alt="LinkedIn" width={100} height={100} />
+          <Image src="/assets/linkedin.png" alt="LinkedIn" width={100} height={100} />
         </a>
         <a href="mailto:jingwangjolie@gmail.com" className={styles.contactLink}>
-          <Image src="/email.png" alt="Email" width={100} height={100} />
+          <Image src="/assets/email.png" alt="Email" width={100} height={100} />
         </a>
         <a href="https://github.com/callmejojow" target="_blank" rel="noopener noreferrer" className={styles.contactLink}>
-          <Image src="/github.png" alt="GitHub" width={100} height={100} />
+          <Image src="/assets/github.png" alt="GitHub" width={100} height={100} />
         </a>
       </div>
 

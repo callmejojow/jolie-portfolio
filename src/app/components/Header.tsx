@@ -11,7 +11,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleSidebar }) => {
     <header className={styles.header}>
       <div className={styles.logo}>
         <Link href="/">
-          <Image src="/logo.png" alt="Logo" width={100} height={100} />
+          <Image src="/assets/logo.svg" alt="Logo" width={100} height={100} />
         </Link>
       </div>
       <button className={styles.pancakeIcon} onClick={onToggleSidebar}>

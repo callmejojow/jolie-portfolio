@@ -91,9 +91,11 @@ const PolaroidBox = ({ hobby }: { hobby: typeof HOBBIES_DATA[0] }) => (
 // Separate Keywords component
 const Keywords = ({ hobbies }: { hobbies: typeof HOBBIES_DATA }) => {
   const [keywordStyles, setKeywordStyles] = useState<{ [key: string]: React.CSSProperties }>({});
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    // Only calculate random styles after component mounts (client-side only)
+    setIsMounted(true);
+    
     const calculateStyles = () => {
       const newStyles: { [key: string]: React.CSSProperties } = {};
       
@@ -111,8 +113,28 @@ const Keywords = ({ hobbies }: { hobbies: typeof HOBBIES_DATA }) => {
     };
 
     calculateStyles();
-  }, [hobbies]); // Add hobbies to the dependency array
+  }, [hobbies]);
 
+  // Return simple version during SSR
+  if (!isMounted) {
+    return (
+      <div className={styles.keywordsContainer}>
+        {hobbies.map((hobby) => (
+          hobby.names.map((name, index) => (
+            <a
+              key={`${hobby.id}-${index}`}
+              href={`#${hobby.id}`}
+              className={`${styles.keyword} ${styles[hobby.id]}`}
+            >
+              {name}
+            </a>
+          ))
+        ))}
+      </div>
+    );
+  }
+
+  // Return version with random styles after mounting
   return (
     <div className={styles.keywordsContainer}>
       {hobbies.map((hobby) => (
@@ -123,7 +145,7 @@ const Keywords = ({ hobbies }: { hobbies: typeof HOBBIES_DATA }) => {
               key={key}
               href={`#${hobby.id}`}
               className={`${styles.keyword} ${styles[hobby.id]}`}
-              style={keywordStyles[key] || {}} // Provide empty object as fallback
+              style={keywordStyles[key] || {}}
             >
               {name}
             </a>

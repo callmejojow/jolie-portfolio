@@ -15,14 +15,16 @@
 .avatarContainer {
   display: flex;
   justify-content: center;
+  position: relative;
+  width: 100%;
   max-width: 500px;
   margin-left: auto;
 }
 
 .avatar {
-  width: 100%;
-  height: auto;
-  object-fit:contain;
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain;
 }
 
 .introContainer {
@@ -47,10 +49,11 @@
 @media (max-width: 1024px) {
   .aboutContainer {
     grid-template-columns: 1fr;
-    padding: 2rem;  
+    padding: 6rem;  
   }
 
   .avatarContainer {
+    max-width: 400px;
     margin: 0 auto;
     order: -1;
   }
@@ -63,10 +66,10 @@
 
 @media (max-width: 640px) {
   .aboutContainer {
-    padding: 1rem; 
+    padding: 6rem 1rem; 
     gap: 1rem; 
   }
-  .avatar {
+  .avatarContainer {
     max-width: 300px;
   }
 

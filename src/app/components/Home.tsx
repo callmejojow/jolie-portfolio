@@ -15,7 +15,7 @@ const Home: React.FC = () => {
           const windowWidth = window.innerWidth;
           
           // Set responsive canvas width with padding
-          canvas.width = Math.min(800, windowWidth - 40); // 20px padding on each side
+          canvas.width = Math.min(800, windowWidth - 40);
           canvas.height = 100;
 
           // Calculate font size based on canvas width

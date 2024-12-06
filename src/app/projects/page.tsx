@@ -136,7 +136,7 @@ const Projects: React.FC = () => {
       {/* Scroll Down Arrow */}
       <div className={styles.arrowIcon}>
         <span className={styles.bouncingArrow}>
-          <Image src="/down-arrow.png" alt="Scroll Down" width={100} height={100} />
+          <Image src="/assets/down-arrow.png" alt="Scroll Down" width={40} height={40} />
         </span>
       </div>
 

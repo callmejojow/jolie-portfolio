@@ -5,6 +5,8 @@ import styles from './Home.module.css';
 const Home: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isMounted, setIsMounted] = useState(false);
+  const animationRef = useRef<NodeJS.Timeout>();
+  const indexRef = useRef(0);
 
   useEffect(() => {
     setIsMounted(true);
@@ -33,14 +35,14 @@ const Home: React.FC = () => {
     updateCanvas();
 
     const text = "Hello! I am Jolie Wang";
-    let index = 0;
+    indexRef.current = 0;
 
     const typeText = () => {
-      if (index <= text.length) {
+      if (indexRef.current <= text.length) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillText(text.slice(0, index), canvas.width / 2, 70);
-        index++;
-        setTimeout(typeText, 100);
+        ctx.fillText(text.slice(0, indexRef.current), canvas.width / 2, 70);
+        indexRef.current++;
+        animationRef.current = setTimeout(typeText, 100);
       }
     };
 
@@ -48,11 +50,17 @@ const Home: React.FC = () => {
 
     const handleResize = () => {
       updateCanvas();
-      ctx.fillText(text.slice(0, index), canvas.width / 2, 70);
+      ctx.fillText(text.slice(0, indexRef.current), canvas.width / 2, 70);
     };
 
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      if (animationRef.current) {
+        clearTimeout(animationRef.current);
+      }
+    };
   }, []);
 
   return (

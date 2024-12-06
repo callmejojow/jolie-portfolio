@@ -1,30 +1,65 @@
 'use client';
-import styles from '../components/About.module.css';
-import Image from 'next/image';
-const About: React.FC = () => {
+
+import { useEffect, useState } from 'react';
+import styles from './Illustrations.module.css';
+
+interface DribbbleShot {
+  id: string;
+  title: string;
+  images: {
+    hidpi: string | null;
+    normal: string;
+    teaser: string;
+  };
+  html_url: string;
+}
+
+const Illustrations: React.FC = () => {
+  const [shots, setShots] = useState<DribbbleShot[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchShots = async () => {
+      try {
+        const response = await fetch('/api/dribbble');
+
+        if (!response.ok) {
+          throw new Error(`Error fetching Dribbble shots: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        setShots(data);
+        setLoading(false);
+      } catch (error: any) {
+        setError(error.message);
+        setLoading(false);
+      }
+    };
+
+    fetchShots();
+  }, []);
+
+  if (loading) return <div className={styles.loading}>Loading...</div>;
+  if (error) return <div className={styles.error}>{error}</div>;
+
   return (
-    <section className={styles.aboutContainer}>
-      <div className={styles.avatarContainer}>
-        <Image 
-          src="/assets/avatar.png" 
-          alt="Avatar" 
-          width={500}
-          height={500}
-          className={styles.avatar}
-          priority
-          sizes="(max-width: 640px) 300px, (max-width: 1024px) 400px, 500px"
-        />
-      </div>
-      <div className={styles.introContainer}>
-        <h2 className={styles.title}>Who I Am</h2>
-        <p className={styles.introText}>
-          Hi, I&apos;m Jolie. I&apos;m a passionate software developer with experience in building full-stack applications and business solutions. My journey has taken 
-          me from art to technology, and my love for creating and innovating continues to this day. Welcome to my portfolio—feel free to explore my projects 
-          and get to know me better!
-        </p>
+    <section className={styles.illustrationsContainer}>
+      <h1 className={styles.sectionTitle}>My Illustrations</h1>
+      <div className={styles.shotsGrid}>
+        {shots.map((shot) => (
+          <a key={shot.id} href={shot.html_url} target="_blank" rel="noopener noreferrer" className={styles.shotCard}>
+            <img
+              src={shot.images.hidpi || shot.images.normal || shot.images.teaser}
+              alt={shot.title}
+              className={styles.shotImage}
+            />
+            <h2 className={styles.shotTitle}>{shot.title}</h2>
+          </a>
+        ))}
       </div>
     </section>
   );
 };
 
-export default About;
+export default Illustrations;

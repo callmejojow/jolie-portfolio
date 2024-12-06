@@ -92,19 +92,35 @@ const PolaroidBox = ({ hobby }: { hobby: typeof HOBBIES_DATA[0] }) => (
 const Keywords = ({ hobbies }: { hobbies: typeof HOBBIES_DATA }) => {
   const [keywordStyles, setKeywordStyles] = useState<{ [key: string]: React.CSSProperties }>({});
   const [isMounted, setIsMounted] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(0);
 
   useEffect(() => {
     setIsMounted(true);
-    
+    setWindowWidth(window.innerWidth);
+
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted) return;
+
     const calculateStyles = () => {
       const newStyles: { [key: string]: React.CSSProperties } = {};
       
       hobbies.forEach(hobby => {
         hobby.names.forEach((_, index) => {
           const key = `${hobby.id}-${index}`;
+          const margin = windowWidth <= 480 ? 0.5 : 
+                        windowWidth <= 768 ? 1 : 2;
+          
           newStyles[key] = {
             transform: `rotate(${Math.random() * 30 - 15}deg)`,
-            margin: `${Math.random() * (window.innerWidth <= 480 ? 0.5 : window.innerWidth <= 768 ? 1 : 2)}rem`
+            margin: `${Math.random() * margin}rem`
           };
         });
       });
@@ -113,9 +129,9 @@ const Keywords = ({ hobbies }: { hobbies: typeof HOBBIES_DATA }) => {
     };
 
     calculateStyles();
-  }, [hobbies]);
+  }, [hobbies, isMounted, windowWidth]);
 
-  // Return simple version during SSR
+  // Simple version for SSR
   if (!isMounted) {
     return (
       <div className={styles.keywordsContainer}>
@@ -134,7 +150,7 @@ const Keywords = ({ hobbies }: { hobbies: typeof HOBBIES_DATA }) => {
     );
   }
 
-  // Return version with random styles after mounting
+  // Client-side version with styles
   return (
     <div className={styles.keywordsContainer}>
       {hobbies.map((hobby) => (

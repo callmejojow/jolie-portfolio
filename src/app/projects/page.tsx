@@ -67,7 +67,15 @@ const Projects: React.FC = () => {
       {projects.map((project, index) => (
         <div key={index} className={styles.projectCard}>
           <div className={styles.projectImage}>
-            <Image src={project.image} alt={project.title} width={100} height={100} />
+            <Image 
+              src={project.image} 
+              alt={project.title} 
+              width={0}
+              height={0}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className={styles.projectImg}
+              priority={index === 0}
+            />
           </div>
           <h3 className={styles.projectTitle}>{project.title}</h3>
           <p className={styles.projectTech}>{project.technologies}</p>

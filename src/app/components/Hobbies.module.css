@@ -1,0 +1,71 @@
+/* General Container for Hobbies Page */
+.hobbiesContainer {
+  padding: 8rem 2rem; 
+  position: relative;
+}
+
+/* Keywords Container */
+.keywordsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 5rem;
+}
+
+/* Keyword Links */
+.keyword {
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #5c4e7d;
+  transition: transform 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.keyword:hover {
+  transform: scale(1.5);
+  color: #493a6d;
+}
+
+/* Placeholder Box for Hobbies */
+.placeholderBox {
+  border: 2px dashed #ccc;
+  width: 100%;
+  height: 60vh;
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 2rem;
+  position: relative;
+  scroll-margin-top: 8rem;
+}
+
+.placeholderTitle {
+  font-size: 2rem;
+  color: #c43727;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.placeholderText {
+  font-size: 1.2rem;
+  color: #333;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .hobbiesContainer {
+    padding: 6rem 1rem; 
+  }
+
+  .keyword {
+    font-size: 1.25rem;
+  }
+
+  .placeholderBox {
+    height: 70vh; 
+    scroll-margin-top: 6rem;
+  }
+}

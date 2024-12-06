@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import styles from './Illustrations.module.css';
+import Image from 'next/image';
+import styles from '../components/About.module.css';
 
 interface DribbbleShot {
   id: string;
@@ -31,8 +32,8 @@ const Illustrations: React.FC = () => {
         const data = await response.json();
         setShots(data);
         setLoading(false);
-      } catch (error: any) {
-        setError(error.message);
+      } catch (error) {
+        setError(error instanceof Error ? error.message : 'Failed to load illustrations');
         setLoading(false);
       }
     };
@@ -49,10 +50,12 @@ const Illustrations: React.FC = () => {
       <div className={styles.shotsGrid}>
         {shots.map((shot) => (
           <a key={shot.id} href={shot.html_url} target="_blank" rel="noopener noreferrer" className={styles.shotCard}>
-            <img
+            <Image
               src={shot.images.hidpi || shot.images.normal || shot.images.teaser}
               alt={shot.title}
               className={styles.shotImage}
+              width={0}
+              height={0}
             />
             <h2 className={styles.shotTitle}>{shot.title}</h2>
           </a>

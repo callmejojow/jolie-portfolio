@@ -1,5 +1,6 @@
 'use client';
 import styles from '../components/Projects.module.css';
+import Image from 'next/image';
 
 const Projects: React.FC = () => {
   const projects = [
@@ -66,7 +67,7 @@ const Projects: React.FC = () => {
       {projects.map((project, index) => (
         <div key={index} className={styles.projectCard}>
           <div className={styles.projectImage}>
-            <img src={project.image} alt={project.title} />
+            <Image src={project.image} alt={project.title} width={100} height={100} />
           </div>
           <h3 className={styles.projectTitle}>{project.title}</h3>
           <p className={styles.projectTech}>{project.technologies}</p>
@@ -124,7 +125,7 @@ const Projects: React.FC = () => {
                 My background in graphic design, UX/UI design, and web content editing plays a crucial role in my professional growth as a developer. 
                 I understand how thoughtful design improves user experience and can greatly impact the success of a product. This multidisciplinary 
                 experience allows me to create aesthetic, functional, and user-centric solutions that bridge the gap between technology and usability. 
-                Whether it's designing wireframes or implementing frontend interfaces, I blend creativity with technical skills to achieve an optimal
+                Whether it&apos;s designing wireframes or implementing frontend interfaces, I blend creativity with technical skills to achieve an optimal
                 user experience.
               </p>
             </div>
@@ -135,7 +136,7 @@ const Projects: React.FC = () => {
       {/* Scroll Down Arrow */}
       <div className={styles.arrowIcon}>
         <span className={styles.bouncingArrow}>
-          <img src="/assets/down-arrow.png" alt="Scroll Down" />
+          <Image src="/down-arrow.png" alt="Scroll Down" width={100} height={100} />
         </span>
       </div>
 

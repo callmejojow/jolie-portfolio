@@ -1,5 +1,6 @@
 'use client';
 import styles from '../components/Contact.module.css';
+import Image from 'next/image';
 
 const Contact = () => {
   return (
@@ -8,13 +9,13 @@ const Contact = () => {
       
       <div className={styles.contactInfo}>
         <a href="https://www.linkedin.com/in/jolie-wang" target="_blank" rel="noopener noreferrer" className={styles.contactLink}>
-          <img src="/assets/linkedin.png" alt="LinkedIn" />
+          <Image src="/linkedin.png" alt="LinkedIn" width={100} height={100} />
         </a>
         <a href="mailto:jingwangjolie@gmail.com" className={styles.contactLink}>
-          <img src="/assets/email.png" alt="Email" />
+          <Image src="/email.png" alt="Email" width={100} height={100} />
         </a>
         <a href="https://github.com/callmejojow" target="_blank" rel="noopener noreferrer" className={styles.contactLink}>
-          <img src="/assets/github.png" alt="GitHub" />
+          <Image src="/github.png" alt="GitHub" width={100} height={100} />
         </a>
       </div>
 

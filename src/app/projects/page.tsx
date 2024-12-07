@@ -1,6 +1,7 @@
 'use client';
 import styles from '../components/Projects.module.css';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Projects: React.FC = () => {
   const projects = [
@@ -85,9 +86,9 @@ const Projects: React.FC = () => {
               <li key={i}>{feature}</li>
             ))}
           </ul>
-          <a href={project.link} className={styles.viewProject}>
+          <Link href={project.link} className={styles.viewProject} target="_blank" rel="noopener noreferrer">
             View Project →
-          </a>
+          </Link>
         </div>
       ))}
     </div>

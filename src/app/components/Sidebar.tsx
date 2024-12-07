@@ -45,9 +45,9 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
           <li><Link href="/hobbies" onClick={handleLinkClick}>Hobbies</Link></li>
           <li><Link href="/illustrations" onClick={handleLinkClick}>Illustrations</Link></li>
           <li>
-            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+            <Link href="/resume.pdf" target="_blank" rel="noopener noreferrer">
               Resume
-            </a>
+            </Link>
           </li>
           <li><Link href="/contact" onClick={handleLinkClick}>Contact</Link></li>
         </ul>

@@ -1,6 +1,6 @@
 # Personal Portfolio Website
 
-This repository contains the source code for my personal portfolio website built with Next.js using TypeScript. The project showcases my professional background, hobbies, and creative work. It fulfills the requirements of my term project for CS601 Web Application Development.
+This repository (https://github.com/callmejojow/jolie-portfolio) contains the source code for my personal portfolio website built with Next.js using TypeScript. The project showcases my professional background, hobbies, and creative work. It fulfills the requirements of my term project for CS601 Web Application Development.
 
 ## Features
 

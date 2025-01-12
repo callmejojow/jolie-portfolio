@@ -108,7 +108,7 @@ This repository contains the source code for my personal portfolio website built
 
 ## Deployment
 The portfolio is deployed on Vercel. The production site is available at:
-[https://jolie-portfolio.vercel.app](jolie-portfolio.vercel.app)
+https://jolie-portfolio.vercel.app
 
 ## Known Limitations
 - **Dribbble API Rate Limits:** Excessive requests may lead to temporary unavailability of the Illustrations page.
